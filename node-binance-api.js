@@ -465,6 +465,21 @@ LIMIT_MAKER
 		first: function(object) {
 			return Object.keys(object).shift();
 		},
+		firstNValues: function(object) {
+		     let topNValues = [];
+		     var _NValues_ = 10;
+		     var prices = Object.keys(object);
+		     var sizes = Object.values(object);
+		     while (_NValues_ != 0) {
+			 var json = {
+			     price: parseFloat(prices.shift()),
+			     size: sizes.shift()
+			 };
+			topNValues.push(json);
+			_NValues_--;
+		     }
+		     return topNValues;
+		},
 		last: function(object) {
 			return Object.keys(object).pop();
 		},
